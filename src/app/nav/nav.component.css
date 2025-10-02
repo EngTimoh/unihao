@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+.text-bold {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.text-blue {
+  color: #007bff;
+}
+.spacer {
+flex-grow: 16;
+}
+#login__btn {
+  margin-right: -40px;
+}

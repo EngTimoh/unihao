@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+.text-bold {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.text-blue {
+  color: #007bff !important;
+}
+a, .nav-link, .cp {
+  text-decoration: none !important;
+  color: white !important;
+}
+.s-link-f{
+  color: #007bff !important;
+}
+.s-link-x{
+  color: gradient(blue,green) !important;
+}
+.s-link-w{
+  color: green !important;
+}

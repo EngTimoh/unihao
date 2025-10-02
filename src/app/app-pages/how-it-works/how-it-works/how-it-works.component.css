@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.spacer {
+  height: 2rem;
+}
+
+.image-fluid {
+}
+.card-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

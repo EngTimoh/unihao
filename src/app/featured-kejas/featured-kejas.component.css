@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+.card-image {
+  height: 200px;
+  background-size: cover;
+}
