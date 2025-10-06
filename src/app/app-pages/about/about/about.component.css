@@ -1,3 +1,17 @@
 :host {
   display: block;
 }
+
+.about-image {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  border-radius: 20px !important;
+}
+
+.separator {
+  height: 8px;
+  margin: 0 auto 0 auto;
+  width: 150px;
+  background-color: blue;
+}
