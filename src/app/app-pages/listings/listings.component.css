@@ -1,3 +1,59 @@
 :host {
   display: block;
 }
+
+
+  
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .hero {
+      background-color: #0d6efd;
+      color: white;
+      text-align: center;
+      padding: 60px 0;
+    }
+    .filter-box {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      margin-top: -40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .property-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .property-card:hover {
+      transform: translateY(-5px);
+    }
+    .price-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #0d6efd;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    footer {
+      background: #0d6efd;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  
+
+    .card-image {
+  height: 200px;
+  background-size: cover;
+}

@@ -1,6 +1,109 @@
 
-<h1>LISTINGS</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniHao | Student Accommodation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 
-<DIV class="GR" style="height: 200PX;">
-    <BUTTon>hELLO</BUTTon>
-</DIV>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="#">UniHao</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Listings</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">How it Works</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="#">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h2 class="fw-bold">Find Your Ideal Student Accommodation</h2>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <div class="container filter-box">
+    <form id="filterForm" class="row g-3">
+      <div class="col-md-3">
+        <input type="text" id="search" class="form-control" placeholder="Search by keywords...">
+      </div>
+      <div class="col-md-3">
+        <select id="location" class="form-select">
+          <option value="">Any Location</option>
+          <option value="Maseno">Maseno</option>
+          <option value="Nairobi">Nairobi</option>
+          <option value="Kisumu">Kisumu</option>
+        </select>
+      </div>
+      <div class="col-md-3 d-flex">
+        <input type="number" id="minPrice" class="form-control me-2" placeholder="Min Price (Ksh)">
+        <input type="number" id="maxPrice" class="form-control" placeholder="Max Price (Ksh)">
+      </div>
+      <div class="col-md-2">
+        <select id="bedrooms" class="form-select">
+          <option value="">Any</option>
+          <option value="1">1 Bedroom</option>
+          <option value="2">2 Bedrooms</option>
+          <option value="3">3 Bedrooms</option>
+        </select>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-outline-primary w-100" onclick="filterProperties()">Filter</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Properties -->
+ 
+
+
+
+  <div class="container mt-5">
+  <h2 class="fw-bold mb-4 text-center">Available Hostels</h2>
+
+  <div class="row" *ngIf="hostels.length > 0; else noData">
+    <div class="col-md-4 mb-4" *ngFor="let hostel of hostels">
+      <div class="card property-card position-relative">
+        <span class="price-tag">Ksh {{ hostel.rps }}/Sem</span>
+        <img
+          [src]="hostel.image || 'https://source.unsplash.com/400x250/?hostel'"
+          class="card-img-top card-image"
+          alt="Hostel Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ hostel.name }}</h5>
+          <p class="card-text text-muted">
+            {{ hostel.bedrooms }} Bedroom • {{ hostel.location }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <div class="text-center text-muted mt-5">
+      <p>No hostels available at the moment.</p>
+    </div>
+  </ng-template>
+</div>
+
+
+  
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

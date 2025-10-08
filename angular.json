@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/uni-hao",
+            "outputPath": "dist/uni-hao/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,8 +37,7 @@
           },
           "configurations": {
             "production": {
-              "outputHashing": "all",
-              "baseHref": "./"
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
@@ -47,8 +46,7 @@
             }
           },
           "defaultConfiguration": "production"
-        }
-
+        },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
