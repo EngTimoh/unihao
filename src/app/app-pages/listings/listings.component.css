@@ -1,59 +1,65 @@
-:host {
-  display: block;
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #007bff, #00b4d8);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
 }
 
+.hero h2 {
+  font-weight: bold;
+  font-size: 2rem;
+}
 
-  
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-    }
-    .navbar {
-      background-color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .hero {
-      background-color: #0d6efd;
-      color: white;
-      text-align: center;
-      padding: 60px 0;
-    }
-    .filter-box {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      margin-top: -40px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .property-card {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    .property-card:hover {
-      transform: translateY(-5px);
-    }
-    .price-tag {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #0d6efd;
-      color: white;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-weight: 500;
-    }
-    footer {
-      background: #0d6efd;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  
+/* Filter Card */
+.filter-card {
+  border-radius: 12px;
+  border: none;
+  background-color: #ffffff;
+}
 
-    .card-image {
-  height: 200px;
-  background-size: cover;
+/* Property Cards */
+.property-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.property-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image */
+.property-image {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Price Tag */
+.price-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn-outline-primary {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
 }
