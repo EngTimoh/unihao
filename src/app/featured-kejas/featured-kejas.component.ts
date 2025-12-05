@@ -1,36 +1,36 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SupabaseService } from '../services/supabase-service';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-featured-kejas',
   standalone: true,
-  imports: [NgFor],
+  imports: [CommonModule],
   templateUrl: './featured-kejas.component.html',
   styleUrls: ['./featured-kejas.component.css'],  // ✅ fixed
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeaturedKejasComponent implements OnInit {
 
-  users: any[] = [];
+  hostels: any[] = [];
 
   constructor(
     private supabaseService: SupabaseService,
-    private cdr: ChangeDetectorRef   // ✅ inject ChangeDetectorRef
-  ) {}
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit() {
-    this.loadUsers();
+    this.loadHostels();
   }
 
-  async loadUsers() {
+  async loadHostels() {
     try {
-      this.users = await this.supabaseService.getData('hostels');
-      console.log('Loaded users:', this.users);
+      this.hostels = await this.supabaseService.getData('hostels');
+      console.log('Loaded hostels:', this.hostels);
 
-      this.cdr.markForCheck();  
+      this.cdr.markForCheck();
     } catch (err) {
-      console.error('Error loading users:', err);
+      console.error('Error loading hostels:', err);
     }
   }
 }

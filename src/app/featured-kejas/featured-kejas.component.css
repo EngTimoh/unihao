@@ -1,7 +1,42 @@
 :host {
   display: block;
 }
-.card-image {
-  height: 200px;
-  background-size: cover;
+
+/* Property Cards */
+.property-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.property-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image */
+.property-image {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Price Tag */
+.price-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.card-title {
+  font-weight: bold;
 }

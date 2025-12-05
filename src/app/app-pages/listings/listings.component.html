@@ -47,24 +47,28 @@
   <div class="row" *ngIf="filteredHostels.length > 0; else noHostels">
     <div class="col-md-4 mb-4" *ngFor="let hostel of filteredHostels">
       <div class="card property-card position-relative card-image">
-        <span class="price-tag">Ksh {{ hostel.rps }}/mo</span>
-        <img [src]="hostel.image || 'https://source.unsplash.com/400x250/?hostel'" class="card-img-top"
-          alt="Hostel Image" />
+        <span class="price-tag">Ksh {{ hostel.rps | currency:' ':'symbol':'1.0-0' }}/mo</span>
+        <img [src]="hostel.image || 'https://via.placeholder.com/300x200'" class="card-img-top property-image"
+          alt="{{ hostel.name }}">
         <div class="card-body">
           <h5 class="card-title">{{ hostel.name }}</h5>
-          <p class="card-text text-muted">
-            {{ hostel.type }} • {{ hostel.location }}
+          <p class="card-text text-muted d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-geo-alt-fill me-2 text-primary" viewBox="0 0 16 16">
+              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+            </svg>
+            {{ hostel.location }}
           </p>
+          <span class="badge bg-light text-dark border">{{ hostel.type }}</span>
         </div>
       </div>
     </div>
   </div>
 
-  <ng-template #noHostels class="py-5">
+  <ng-template #noHostels>
     <div class="text-center text-muted mt-5 py-5">
       <p>No hostels match your filters.</p>
     </div>
   </ng-template>
-
 
 </div>
