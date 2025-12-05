@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SupabaseService } from '../../services/supabase-service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // ✅ Needed for [(ngModel)]
 
 @Component({
   selector: 'app-listings',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './listings.component.html',
   styleUrls: ['./listings.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -12,6 +12,10 @@ export class SupabaseService {
   private _session = new BehaviorSubject<Session | null>(null);
   readonly session$ = this._session.asObservable();
 
+  get client() {
+    return this.supabase;
+  }
+
   constructor() {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
     this.initializeSession();

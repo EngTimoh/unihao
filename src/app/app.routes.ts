@@ -9,6 +9,7 @@ import { SignupComponent } from './app-pages/signup/signup.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'listings', component: ListingsComponent },
+  { path: 'listings/:id', loadComponent: () => import('./app-pages/listing-details/listing-details.component').then(m => m.ListingDetailsComponent) },
   { path: 'about', component: AboutComponent },
   { path: 'how-it-works', component: HowItWorksComponent },
   { path: 'login', component: LoginComponent },

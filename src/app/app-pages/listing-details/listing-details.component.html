@@ -1,0 +1,54 @@
+<div class="container mt-5 py-5" *ngIf="listing; else loadingTpl">
+    <div class="row">
+        <div class="col-md-8">
+            <img [src]="listing.image || 'https://via.placeholder.com/800x400'" class="img-fluid rounded mb-4 w-100"
+                style="object-fit: cover; height: 400px;" alt="{{ listing.name }}">
+
+            <h1 class="fw-bold mb-3">{{ listing.name }}</h1>
+
+            <div class="d-flex align-items-center mb-4 text-muted">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-geo-alt-fill me-2 text-primary" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                </svg>
+                <span class="fs-5">{{ listing.location }}</span>
+                <span class="mx-3">•</span>
+                <span class="badge bg-primary fs-6">{{ listing.type }}</span>
+            </div>
+
+            <div class="mb-4">
+                <h3 class="fw-bold">Description</h3>
+                <p class="lead">{{ listing.description || 'No description available.' }}</p>
+            </div>
+
+            <div class="mb-4">
+                <h3 class="fw-bold">Amenities</h3>
+                <ul class="list-group list-group-flush" *ngIf="listing.amenities; else noAmenities">
+                    <li class="list-group-item" *ngFor="let amenity of listing.amenities">{{ amenity }}</li>
+                </ul>
+                <ng-template #noAmenities>
+                    <p class="text-muted">No amenities listed.</p>
+                </ng-template>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 sticky-top" style="top: 100px;">
+                <div class="card-body p-4">
+                    <h3 class="fw-bold text-primary mb-4">Ksh {{ listing.rps | currency:' ':'symbol':'1.0-0' }}/mo</h3>
+
+                    <button class="btn btn-primary w-100 btn-lg mb-3">Book Now</button>
+                    <button class="btn btn-outline-secondary w-100 btn-lg">Contact Host</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingTpl>
+    <div class="container mt-5 py-5 text-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</ng-template>

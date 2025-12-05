@@ -46,7 +46,7 @@
   <!-- Listings -->
   <div class="row" *ngIf="filteredHostels.length > 0; else noHostels">
     <div class="col-md-4 mb-4" *ngFor="let hostel of filteredHostels">
-      <div class="card property-card position-relative card-image">
+      <div class="card property-card position-relative card-image" [routerLink]="['/listings', hostel.id]">
         <span class="price-tag">Ksh {{ hostel.rps | currency:' ':'symbol':'1.0-0' }}/mo</span>
         <img [src]="hostel.image || 'https://via.placeholder.com/300x200'" class="card-img-top property-image"
           alt="{{ hostel.name }}">
