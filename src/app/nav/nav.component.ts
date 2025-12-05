@@ -22,13 +22,7 @@ export class NavComponent {
   ) { }
 
   ngOnInit() {
-    this.supabaseService.getSession().then((session) => {
-      this.session = session;
-      this.setAvatar(session);
-      this.cdr.markForCheck();
-    });
-
-    this.supabaseService.authChanges((_, session) => {
+    this.supabaseService.session$.subscribe((session) => {
       this.session = session;
       this.setAvatar(session);
       this.cdr.markForCheck();

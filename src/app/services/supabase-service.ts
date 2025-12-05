@@ -1,16 +1,29 @@
 
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient, Session } from '@supabase/supabase-js';
 import { environment } from '../../enviroments/enviroment';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SupabaseService {
   private supabase: SupabaseClient;
+  private _session = new BehaviorSubject<Session | null>(null);
+  readonly session$ = this._session.asObservable();
 
   constructor() {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
+    this.initializeSession();
+  }
+
+  private async initializeSession() {
+    const { data: { session } } = await this.supabase.auth.getSession();
+    this._session.next(session);
+
+    this.supabase.auth.onAuthStateChange((_event, session) => {
+      this._session.next(session);
+    });
   }
 
   // Example: Get all rows from a table
