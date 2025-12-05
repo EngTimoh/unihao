@@ -40,4 +40,26 @@ export class SupabaseService {
     if (error) throw error;
     return data;
   }
+
+  // Sign out
+  async signOut() {
+    const { error } = await this.supabase.auth.signOut();
+    if (error) throw error;
+  }
+
+  // Get current user
+  async getUser() {
+    const { data: { user } } = await this.supabase.auth.getUser();
+    return user;
+  }
+
+  // Get session
+  async getSession() {
+    const { data: { session } } = await this.supabase.auth.getSession();
+    return session;
+  }
+
+  get authChanges() {
+    return this.supabase.auth.onAuthStateChange;
+  }
 }
