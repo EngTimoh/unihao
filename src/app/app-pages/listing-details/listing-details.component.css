@@ -1,3 +1,7 @@
 :host {
     display: block;
 }
+
+.contact-btn a {
+    text-decoration: none !important;
+}

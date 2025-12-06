@@ -14,5 +14,7 @@ export const routes: Routes = [
   { path: 'how-it-works', component: HowItWorksComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'profile', loadComponent: () => import('./app-pages/profile/profile.component').then(m => m.ProfileComponent) },
+  { path: 'settings', loadComponent: () => import('./app-pages/settings/settings.component').then(m => m.SettingsComponent) },
   { path: '**', redirectTo: '' } // wildcard fallback
 ];

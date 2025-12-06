@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SupabaseService } from '../../services/supabase-service';
 
@@ -17,6 +17,7 @@ export class ListingDetailsComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private supabaseService: SupabaseService,
         private cdr: ChangeDetectorRef
     ) { }
@@ -45,6 +46,31 @@ export class ListingDetailsComponent implements OnInit {
         } finally {
             this.loading = false;
             this.cdr.markForCheck();
+        }
+    }
+
+    async bookNow() {
+        try {
+            const session = await this.supabaseService.getSession();
+            if (!session) {
+                alert('Please login to book this hostel.');
+                this.router.navigate(['/login']);
+                return;
+            }
+
+            const userId = session.user.id;
+            const hostelId = this.listing.id;
+
+            await this.supabaseService.insertData('bookings', {
+                user_id: userId,
+                hostel_id: hostelId,
+                status: 'pending' // Default status
+            });
+
+            alert('Booking request sent successfully!');
+        } catch (err: any) {
+            console.error('Error booking hostel:', err);
+            alert('Failed to book hostel: ' + err.message);
         }
     }
 }

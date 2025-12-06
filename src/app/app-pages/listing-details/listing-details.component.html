@@ -37,8 +37,10 @@
                 <div class="card-body p-4">
                     <h3 class="fw-bold text-primary mb-4">Ksh {{ listing.rps | currency:' ':'symbol':'1.0-0' }}/mo</h3>
 
-                    <button class="btn btn-primary w-100 btn-lg mb-3">Book Now</button>
-                    <button class="btn btn-outline-secondary w-100 btn-lg">Contact Host</button>
+                    <button class="btn btn-primary w-100 btn-lg mb-3" (click)="bookNow()">Book Now</button>
+                    <button class="btn contact-btn btn-outline-secondary w-100 btn-lg"><a
+                            href="tel:{{ listing.phone_number}}">Contact Host: {{ listing.phone_number}}
+                        </a> </button>
                 </div>
             </div>
         </div>
