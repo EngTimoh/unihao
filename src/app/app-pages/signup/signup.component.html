@@ -11,6 +11,46 @@
 
                     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                         <div class="mb-3">
+                            <label for="user_name" class="form-label">User Name</label>
+                            <input type="text" class="form-control" id="user_name" formControlName="user_name"
+                                [class.is-invalid]="signupForm.get('user_name')?.invalid && signupForm.get('user_name')?.touched">
+                            <div class="invalid-feedback">
+                                User Name is required.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location" formControlName="location"
+                                [class.is-invalid]="signupForm.get('location')?.invalid && signupForm.get('location')?.touched">
+                            <div class="invalid-feedback">
+                                Location is required.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone_no" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone_no" formControlName="phone_no"
+                                [class.is-invalid]="signupForm.get('phone_no')?.invalid && signupForm.get('phone_no')?.touched">
+                            <div class="invalid-feedback">
+                                Phone Number is required.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-select" id="gender" formControlName="gender"
+                                [class.is-invalid]="signupForm.get('gender')?.invalid && signupForm.get('gender')?.touched">
+                                <option value="" disabled>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Gender is required.
+                            </div>
+                        </div>
+                        <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="email" formControlName="email"
                                 [class.is-invalid]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">

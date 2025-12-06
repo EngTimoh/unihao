@@ -24,7 +24,11 @@ export class SignupComponent {
         this.signupForm = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            confirmPassword: ['', [Validators.required]]
+            confirmPassword: ['', [Validators.required]],
+            user_name: ['', [Validators.required]],
+            location: ['', [Validators.required]],
+            phone_no: ['', [Validators.required]],
+            gender: ['', [Validators.required]]
         }, { validator: this.passwordMatchValidator });
     }
 
@@ -39,10 +43,24 @@ export class SignupComponent {
         this.loading = true;
         this.error = null;
 
-        const { email, password } = this.signupForm.value;
+        const { email, password, user_name, location, phone_no, gender } = this.signupForm.value;
 
         try {
-            await this.supabaseService.signUp(email, password);
+            const { user } = await this.supabaseService.signUp(email, password);
+
+            if (user) {
+                await this.supabaseService.insertData('profiles', {
+                    user_name,
+                    location,
+                    phone_no,
+                    gender,
+                    email // Optional: if you want to store email in profiles too
+                });
+
+                // Prevent auto-login by signing out immediately
+                await this.supabaseService.signOut();
+            }
+
             // Depending on Supabase settings, might need to confirm email or just log in
             // For now, redirect to login or home
             this.router.navigate(['/login']);
